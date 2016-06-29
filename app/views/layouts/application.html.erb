@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CCC</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body >
+
+
+<!--script type="text/javascript">
+  //<![CDATA[
+  var j = jQuery.noConflict();
+  j(function (){
+  j(".esthela").hover(function(){
+  j(".esthela").stop(true, false).animate({right:"0"},"medium");
+  },function(){
+  j(".esthela").stop(true, false).animate({right:"-400"},"medium");
+  },500);
+  return false;
+  });
+  //]]>
+</script>
+
+<style type="text/css">
+  /*<![CDATA[*/
+  .esthela {
+  float:right;
+  width:450px;
+  height:350px;
+  background: url(http://u.jimdo.com/www21/o/s4e9df44a0ad8ccd8/img/i89f1a63f61ac63da/1340075377/std/image.png) no-repeat !important;
+  display:block;
+  right: -400px;
+  padding:0;
+  position:fixed;
+  top: 56px;
+  z-index:1002;
+  }
+  /*]]>*/
+</style>
+
+
+<% if user_signed_in? %>
+
+<script>
+$.fn.extend({ChatSocket: function(opciones) {
+        var ChatSocket=this;
+
+                  var idChat=$(ChatSocket).attr('id');
+        defaults = {
+                    ws,
+                        Room:"RoomDeveloteca",
+                        pass:"1234",
+                        lblTitulChat:" Chat",
+                        lblCampoEntrada:"Menssage",
+                        lblEnviar:"Send",
+                        textoAyuda:"Develoteca",
+                        Nombre:"Anónimo",
+
+                        urlImg:"http://placehold.it/50/55C1E7/fff&text=U",
+                        btnEntrar:"btnEntrar",
+                        btnEnviar:"btnEnviar",
+                        lblBtnEnviar:"Enviar",
+                        lblTxtEntrar:"txtEntrar",
+                        lblTxtEnviar:"txtMensaje",
+                        lblBtnEntrar:"Enter",
+                        idDialogo:"DialogoEntrada",
+                        classChat:"",
+                        idOnline:"ListaOnline",
+                        lblUsuariosOnline:"Usuarios",
+                      lblEntradaNombre:"Name:",
+                      panelColor:"success"
+            }
+
+                   var opciones = $.extend({}, defaults, opciones);
+
+                   var ws;
+                   var Room=opciones.Room;
+                   var pass=opciones.pass;
+                   var lblTitulChat=opciones.lblTitulChat;
+                   var lblCampoEntrada=opciones.lblCampoEntrada;
+                   var lblEnviar=opciones.lblBtnEnviar;
+                   var textoAyuda=opciones.textoAyuda;
+                   var Nombre=opciones.Nombre;
+
+                   var urlImg=opciones.urlImg;
+                   var btnEntrar=opciones.btnEntrar;
+                   var btnEnviar=opciones.btnEnviar;
+                   var lblBtnEnviar=opciones.lblBtnEnviar;
+                   var lblTxtEntrar=opciones.lblTxtEntrar;
+                   var lblTxtEnviar=opciones.lblTxtEnviar;
+                   var lblBtnEntrar=opciones.lblBtnEntrar;
+                   var idDialogo=opciones.idDialogo;
+                   var classChat=opciones.classChat;
+                   var idOnline=opciones.idOnline;
+                   var lblUsuariosOnline=opciones.lblUsuariosOnline;
+                   var lblEntradaNombre=opciones.lblEntradaNombre;
+                   var panelColor=opciones.panelColor;
+                  if( $('#'+idOnline).length==0 )
+                  {
+                   idOnline=idChat+"listaOnline";
+                      $('#'+idChat).append('<br/><div id="'+idOnline+'"></div>');
+
+                  }
+
+
+
+          function IniciarConexion(){
+                  conex='{"setID":"'+Room+'","passwd":"'+pass+'"}';
+                  ws= new WebSocket("ws://achex.ca:4010");
+                  ws.onopen= function(){ ws.send(conex); }
+                  ws.onmessage= function(Mensajes){
+                  var MensajesObtenidos=Mensajes.data;
+                  var obj = jQuery.parseJSON(MensajesObtenidos);
+                  AgregarItem(obj);
+
+                  if(obj.sID!=null){
+
+
+                  if( $('#'+obj.sID).length==0 )
+                  {
+
+                    $('#listaOnline').append('<li class="list-group-item" id="'+obj.sID+'"><span class="label label-success">&#9679;</span> - '+obj.Nombre+'</li>');
+
+                  }
+
+                  }
+
+              }
+              ws.onclose= function(){
+                  alert("Conexión cerrada");
+              }
+        }
+         IniciarConexion();
+        function iniciarChat(){
+          //Nombre=$('#'+lblTxtEntrar).val();
+          Nombre='Asesor';
+          $('#'+idDialogo).hide();
+            $('#'+idOnline).show();
+
+          CrearChat();
+          UsuarioOnline();
+          getOnline();
+        }
+
+        function CrearEntrada(){
+        $('#'+idChat).append('<div id="'+idDialogo+'" class="'+classChat+'" id="InputNombre"><div class="panel-footer" style="margin-top:100px;"><div class="input-group"><input id="'+lblTxtEntrar+'" type="text" class="form-control input-sm" placeholder="'+lblEntradaNombre+'"><span class="input-group-btn"><button id="'+btnEntrar+'" class="btn btn-success btn-sm" >'+lblBtnEntrar+'</button></span></div></div></div>');
+       //$('#'+idOnline).append(' <div class="panel panel-'+panelColor+'"><div class="panel-heading"><span class="glyphicon glyphicon-user"></span> '+lblUsuariosOnline+'</div><div class="panel-body"><ul class="list-group" id="listaOnline"></ul></div><div class="panel-footer"><div class="input-group"></span></div></div></div>');
+            $("#"+lblTxtEntrar).keyup(function (e) {if (e.keyCode == 13) { iniciarChat(); }});
+            $("#"+btnEntrar).click(function(){
+            iniciarChat();
+            });
+      }
+        function CrearChat(){
+           $('#'+idChat ).append( '<div class="'+classChat+'"><div class="panel panel-'+panelColor+'"><div class="panel-heading"><span class="glyphicon glyphicon-comment"></span>'+lblTitulChat+" : "+Nombre+'<div class="btn-group pull-right"></button></div></div><div class="panel-body"><ul class="chatpluginchat"></ul></div><div class="panel-footer"><div class="input-group"><input id="'+lblTxtEnviar+'" type="text" class="form-control input-sm" placeholder="'+lblCampoEntrada+'" /><span class="input-group-btn"><button  class="btn btn-warning btn-sm" id="'+btnEnviar+'">'+lblEnviar+'</button></span></div></div></div></div><li class="left clearfix itemtemplate" style="display:none"><span class="chat-img pull-left"><img src="'+urlImg+'" alt="User Avatar" class="img-circle" id="Foto"/></span><div class="chat-body clearfix"><div class="header"><strong class="primary-font" id="Nombre">Nombre</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-asterisk"></span><span id="Tiempo">12 mins ago</span></small></div> <p id="Contenido">Contenido</p></div></li>');
+
+  $("#"+lblTxtEnviar).keyup(function (e) {if (e.keyCode == 13) { EnviarMensaje();}});
+  $("#"+btnEnviar).click(function () {EnviarMensaje();});
+
+      }
+
+      function EnviarMensaje(){
+         ws.send('{"to":"'+Room+'","Nombre":"'+Nombre+'","Contenido":"'+$('#'+lblTxtEnviar).val()+'"}');
+      $("#"+lblTxtEnviar).val('');
+
+      };
+      function UsuarioOnline(){
+         ws.send('{"to":"'+Room+'","Nombre":"'+Nombre+'"}');
+      }
+      function AgregarItem(Obj){
+
+          if((Obj.Contenido!=null)&&(Obj.Nombre!=null)){
+
+          $( ".itemtemplate" ).clone().appendTo( ".chatpluginchat" );
+          $('.chatpluginchat .itemtemplate').show(10);
+          $('.chatpluginchat .itemtemplate #Nombre').html(Obj.Nombre);
+          $('.chatpluginchat .itemtemplate #Contenido').html(Obj.Contenido);
+
+           var formattedDate = new Date();
+           var d = parseInt( formattedDate.getUTCDate() )-1;
+           var m =  parseInt( formattedDate.getMonth() )+1;
+           var y = formattedDate.getFullYear();
+           var h= formattedDate.getHours();
+           var min= formattedDate.getMinutes();
+
+          Fecha=d+"/"+m+"/"+y+" "+h+":"+min;
+
+          $('.chatpluginchat .itemtemplate #Tiempo').html(Fecha);
+          $('.chatpluginchat .itemtemplate').removeClass("itemtemplate");
+
+          var j = jQuery.noConflict();
+          j(".esthela").stop(true, false).animate({right:"0"},"medium");
+
+
+          }
+
+      }
+         function getOnline() {
+              setInterval(UsuarioOnline, 3000);
+          }
+
+
+       CrearEntrada();
+       iniciarChat();
+  // Fin
+
+}
+});
+</script>
+
+
+
+<%else%>
+
+<script>
+$.fn.extend({ChatSocket: function(opciones) {
+        var ChatSocket=this;
+
+                  var idChat=$(ChatSocket).attr('id');
+        defaults = {
+                    ws,
+                        Room:"RoomDeveloteca",
+                        pass:"1234",
+                        lblTitulChat:" Chat",
+                        lblCampoEntrada:"Menssage",
+                        lblEnviar:"Send",
+                        textoAyuda:"Develoteca",
+                        Nombre:"Anónimo",
+
+                        urlImg:"http://placehold.it/50/55C1E7/fff&text=U",
+                        btnEntrar:"btnEntrar",
+                        btnEnviar:"btnEnviar",
+                        lblBtnEnviar:"Enviar",
+                        lblTxtEntrar:"txtEntrar",
+                        lblTxtEnviar:"txtMensaje",
+                        lblBtnEntrar:"Enter",
+                        idDialogo:"DialogoEntrada",
+                        classChat:"",
+                        idOnline:"ListaOnline",
+                        lblUsuariosOnline:"Usuarios",
+                      lblEntradaNombre:"Name:",
+                      panelColor:"success"
+            }
+
+                   var opciones = $.extend({}, defaults, opciones);
+
+                   var ws;
+                   var Room=opciones.Room;
+                   var pass=opciones.pass;
+                   var lblTitulChat=opciones.lblTitulChat;
+                   var lblCampoEntrada=opciones.lblCampoEntrada;
+                   var lblEnviar=opciones.lblBtnEnviar;
+                   var textoAyuda=opciones.textoAyuda;
+                   var Nombre=opciones.Nombre;
+
+                   var urlImg=opciones.urlImg;
+                   var btnEntrar=opciones.btnEntrar;
+                   var btnEnviar=opciones.btnEnviar;
+                   var lblBtnEnviar=opciones.lblBtnEnviar;
+                   var lblTxtEntrar=opciones.lblTxtEntrar;
+                   var lblTxtEnviar=opciones.lblTxtEnviar;
+                   var lblBtnEntrar=opciones.lblBtnEntrar;
+                   var idDialogo=opciones.idDialogo;
+                   var classChat=opciones.classChat;
+                   var idOnline=opciones.idOnline;
+                   var lblUsuariosOnline=opciones.lblUsuariosOnline;
+                   var lblEntradaNombre=opciones.lblEntradaNombre;
+                   var panelColor=opciones.panelColor;
+                  if( $('#'+idOnline).length==0 )
+                  {
+                   idOnline=idChat+"listaOnline";
+                      $('#'+idChat).append('<br/><div id="'+idOnline+'"></div>');
+
+                  }
+
+
+
+          function IniciarConexion(){
+                  conex='{"setID":"'+Room+'","passwd":"'+pass+'"}';
+                  ws= new WebSocket("ws://achex.ca:4010");
+                  ws.onopen= function(){ ws.send(conex); }
+                  ws.onmessage= function(Mensajes){
+                  var MensajesObtenidos=Mensajes.data;
+                  var obj = jQuery.parseJSON(MensajesObtenidos);
+                  AgregarItem(obj);
+
+                  if(obj.sID!=null){
+
+
+                  if( $('#'+obj.sID).length==0 )
+                  {
+
+                    $('#listaOnline').append('<li class="list-group-item" id="'+obj.sID+'"><span class="label label-success">&#9679;</span> - '+obj.Nombre+'</li>');
+
+                  }
+
+                  }
+
+              }
+              ws.onclose= function(){
+                  alert("Conexión cerrada");
+              }
+        }
+         IniciarConexion();
+        function iniciarChat(){
+          Nombre=$('#'+lblTxtEntrar).val();
+          $('#'+idDialogo).hide();
+            $('#'+idOnline).show();
+
+          CrearChat();
+          UsuarioOnline();
+          getOnline();
+        }
+
+        function CrearEntrada(){
+        $('#'+idChat).append('<div id="'+idDialogo+'" class="'+classChat+'" id="InputNombre"><div class="panel-footer" style="margin-top:100px;"><div class="input-group"><input id="'+lblTxtEntrar+'" type="text" class="form-control input-sm" placeholder="'+lblEntradaNombre+'"><span class="input-group-btn"><button id="'+btnEntrar+'" class="btn btn-success btn-sm" >'+lblBtnEntrar+'</button></span></div></div></div>');
+       //$('#'+idOnline).append(' <div class="panel panel-'+panelColor+'"><div class="panel-heading"><span class="glyphicon glyphicon-user"></span> '+lblUsuariosOnline+'</div><div class="panel-body"><ul class="list-group" id="listaOnline"></ul></div><div class="panel-footer"><div class="input-group"></span></div></div></div>');
+            $("#"+lblTxtEntrar).keyup(function (e) {if (e.keyCode == 13) { iniciarChat(); }});
+            $("#"+btnEntrar).click(function(){
+            iniciarChat();
+            });
+      }
+        function CrearChat(){
+           $('#'+idChat ).append( '<div class="'+classChat+'"><div class="panel panel-'+panelColor+'"><div class="panel-heading"><span class="glyphicon glyphicon-comment"></span>'+lblTitulChat+" : "+Nombre+'<div class="btn-group pull-right"></button></div></div><div class="panel-body"><ul class="chatpluginchat"></ul></div><div class="panel-footer"><div class="input-group"><input id="'+lblTxtEnviar+'" type="text" class="form-control input-sm" placeholder="'+lblCampoEntrada+'" /><span class="input-group-btn"><button  class="btn btn-warning btn-sm" id="'+btnEnviar+'">'+lblEnviar+'</button></span></div></div></div></div><li class="left clearfix itemtemplate" style="display:none"><span class="chat-img pull-left"><img src="'+urlImg+'" alt="User Avatar" class="img-circle" id="Foto"/></span><div class="chat-body clearfix"><div class="header"><strong class="primary-font" id="Nombre">Nombre</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-asterisk"></span><span id="Tiempo">12 mins ago</span></small></div> <p id="Contenido">Contenido</p></div></li>');
+
+  $("#"+lblTxtEnviar).keyup(function (e) {if (e.keyCode == 13) { EnviarMensaje();}});
+  $("#"+btnEnviar).click(function () {EnviarMensaje();});
+
+      }
+
+      function EnviarMensaje(){
+         ws.send('{"to":"'+Room+'","Nombre":"'+Nombre+'","Contenido":"'+$('#'+lblTxtEnviar).val()+'"}');
+      $("#"+lblTxtEnviar).val('');
+
+      };
+      function UsuarioOnline(){
+         ws.send('{"to":"'+Room+'","Nombre":"'+Nombre+'"}');
+      }
+      function AgregarItem(Obj){
+
+          if((Obj.Contenido!=null)&&(Obj.Nombre!=null)){
+
+          $( ".itemtemplate" ).clone().appendTo( ".chatpluginchat" );
+          $('.chatpluginchat .itemtemplate').show(10);
+          $('.chatpluginchat .itemtemplate #Nombre').html(Obj.Nombre);
+          $('.chatpluginchat .itemtemplate #Contenido').html(Obj.Contenido);
+
+           var formattedDate = new Date();
+           var d = parseInt( formattedDate.getUTCDate() )-1;
+           var m =  parseInt( formattedDate.getMonth() )+1;
+           var y = formattedDate.getFullYear();
+           var h= formattedDate.getHours();
+           var min= formattedDate.getMinutes();
+
+          Fecha=d+"/"+m+"/"+y+" "+h+":"+min;
+
+          $('.chatpluginchat .itemtemplate #Tiempo').html(Fecha);
+          $('.chatpluginchat .itemtemplate').removeClass("itemtemplate");
+          }
+      }
+         function getOnline() {
+              setInterval(UsuarioOnline, 3000);
+          }
+
+
+       CrearEntrada();
+  // Fin
+
+}
+});
+</script>
+
+
+<%end%>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74824848-1', 'auto');
+  ga('send', 'pageview');
+
+</script-->
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="">CONTROLCC</a>
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><a href="/binnacles">Bitácora</a></li>
+        <li><a href="/computers">Computadoras</a></li>
+        <li><a href="/programs">Software</a></li>
+        <li><a href="/students">Alumnos</a></li>
+        <li><a href="/complains">Quejas</a></li>
+        <li><a href="/messages">Correos</a></li>
+        <!--Logged in as <strong><%= current_user.email %></strong-->
+        <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+      <% else %>
+        <!--li><%= link_to "Registrarse", new_user_registration_path, :class => 'navbar-link'  %></li-->
+        <li><a href="/binnacles">Bitácora</a></li>
+        <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+      <% end %>
+      </ul>
+      <!--li><a href="/">Hola Mundo</a></li-->
+      <!--li><a href="#">Hola Mundo</a></li-->
+
+  </div>
+</nav><br><br><br><br>
+
+<div class="container">
+
+  <p class="navbar-text pull-right">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= yield %>
+</div>
+<div class="esthela" style="right: -400px;">
+    <div style="color: rgb(255, 255, 255); padding: 8px 5px 0pt 50px;">
+        <div class="disemucho.jimdo.com">
+          <!--div class="row alert alert-info"-->
+            <div class="col-lg-4">
+              <!--div id="ListaOnline">
+              </div-->
+            </div>
+
+            <div class="col-lg-8">
+              <div id="Elchat"></div>
+            </div>
+          <!--/div-->
+          <!--% if user_signed_in? %>
+            <script type="text/javascript">
+              iniciarChat();
+            </script>
+          <%else%>
+            <script type="text/javascript">
+              $('#Elchat').ChatSocket({'lblEntradaNombre':'Ingrese su nombre para iniciar el chat'});
+            </script>
+          <%end%-->
+          <script type="text/javascript">
+            $('#Elchat').ChatSocket({'lblEntradaNombre':'Ingrese su nombre para iniciar el chat'});
+          </script>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

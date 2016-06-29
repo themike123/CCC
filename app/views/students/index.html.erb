@@ -1,0 +1,28 @@
+<a  class="btn btn-default	" href="/students/new">Nuevo Registro</a>
+	<h1>Alumnos</h1>
+	<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Matricula</th>
+        <th>Nombre</th>
+				<th>Apellido Paterno</th>
+				<th>Apellido Materno</th>
+        <th>Estado</th>
+				<th>Celular</th>
+				<th>Edición</th>
+      </tr>
+    </thead>
+    <tbody>
+			<% @students.each do |student| %>
+				<tr>
+					<td><%= student.matricula%></td>
+	        <td><%= student.nombre%></td>
+					<td><%= student.app%></td>
+	        <td><%= student.apm	%></td>
+	        <td><%= student.estado%></td>
+	        <td><%= student.celular%></td>
+					<td><%= link_to "Ver",student %> <%= link_to "Eliminar",student,method: :delete%></td>
+	      </tr>
+			<%end%>
+    </tbody>
+  </table>

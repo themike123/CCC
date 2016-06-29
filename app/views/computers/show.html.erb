@@ -1,0 +1,18 @@
+<%= link_to 'Regresar', computers_path %>
+	<h1>Equipo de Computo</h1>
+		<div class="panel-group">
+	    	<div class="panel panel-default">
+	      		<div class="panel-heading"><%= @computer.equipo %></div>
+	      		<div class="panel-body">
+
+						ID Interno:<%= @computer.idi %>
+
+					  </div>
+            <div class="panel-body">N Serie:<%= @computer.numserie %></div>
+            <div class="panel-body">Marca:<%= @computer.marca %></div>
+            <div class="panel-body">Tipo:<%= @computer.tipo %></div>
+            <div class="panel-body">Modelo:<%= @computer.modelo %></div>
+            <div class="panel-body">Observaciones:	<%= @computer.observaciones %></div>
+						<div class="panel-body"><%= link_to "Editar", edit_computer_path(@computer)%></div>
+	    	</div>
+		</div>

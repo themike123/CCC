@@ -1,0 +1,65 @@
+<%= form_for(@complain) do |f| %>
+  <% if @complain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@complain.errors.count, "error") %> prohibited this complain from being saved:</h2>
+
+      <ul>
+      <% @complain.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <!--div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div-->
+
+  <div class="form-group">
+    <label for="text">Nombre completo:</label>
+    <%= f.text_field :name , placeholder: "Nombre completo" , class:"form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Telefono:</label>
+    <%= f.text_field :phone , placeholder: "Telefono" , class:"form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Email:</label>
+    <%= f.text_field :email , placeholder: "Email" , class:"form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Asunto:</label>
+    <%= f.text_field :subject , placeholder: "Asunto" , class:"form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Contenido:</label>
+    <%= f.text_area :content , placeholder: "Contenido" , class:"form-control"  %>
+  </div>
+
+  <!--div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div-->
+
+  <!--div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div-->
+  <!--div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div-->
+  <!--div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div-->
+  <div class="actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  version: MyString
+  plataforma: MyString
+  arquitectura: MyString
+  tipo: MyString
+
+two:
+  nombre: MyString
+  version: MyString
+  plataforma: MyString
+  arquitectura: MyString
+  tipo: MyString

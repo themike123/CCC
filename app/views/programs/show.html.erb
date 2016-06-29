@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<h1>Software</h1>
+		<div class="panel-group">
+	    	<div class="panel panel-primary">
+	      		<div class="panel-heading">Nombre:<%= @program.nombre %></div>
+	      		<div class="panel-body">Version:<%= @program.version %></div>
+            <div class="panel-body">Plataforma:<%= @program.plataforma %></div>
+            <div class="panel-body">Arquitectura:<%= @program.arquitectura %></div>
+            <div class="panel-body">Tipo:<%= @program.tipo %></div>
+						<div class="panel-body"><%= link_to 'Editar', edit_program_path(@program) %> |
+            <%= link_to 'Regresar', programs_path %></div>
+	    	</div>
+		</div>
+</div>

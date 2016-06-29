@@ -1,0 +1,54 @@
+<h1>Bitácora</h1>
+<% if user_signed_in? %>
+<a href="/binnacles/new" class="btn btn-default" >Nuevo Registro</a>
+<h3>Registros Activos</h3>
+<% @binnacles.each do |binnacle| %>
+	<div class="panel-group">
+			<div class="panel panel-default">
+					<div class="panel-heading"><%= binnacle.nombre_computer %></div>
+					<div class="panel-body"><%= binnacle.nombre_student%></div>
+					<div class="panel-body"><%= link_to "Salir", edit_binnacle_path(binnacle)%></div>
+			</div>
+	</div>
+<%end%>
+<h3>Historial de la Bitácora</h3>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Equipo</th>
+				<th>Hora Entrada</th>
+				<th>Hora Salida</th>
+				<th>Fecha</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @historial.each do |h| %>
+				<tr>
+					<td><%= h.nombre_student%></td>
+					<td><%= h.nombre_computer%></td>
+					<td><%= h.horainicial%></td>
+					<td><%= h.horafinal%></td>
+					<td><%= h.fecha%></td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+
+<% else %>
+	<%if @longitud == 0%>
+		<!--h5>Te has REGISTRADO EN LA BITACORA</h5-->
+		<br>
+		<a href="/binnacles/new" class="btn btn-default" >Nuevo Registro</a>
+	<%end%>
+
+	<% @binnacles.each do |binnacle| %>
+		<div class="panel-group">
+				<div class="panel panel-default">
+						<div class="panel-heading"><%= binnacle.nombre_computer %></div>
+						<div class="panel-body"><%= binnacle.nombre_student%></div>
+						<div class="panel-body"><%= link_to "Salir", edit_binnacle_path(binnacle)%></div>
+				</div>
+		</div>
+	<%end%>
+<% end %>

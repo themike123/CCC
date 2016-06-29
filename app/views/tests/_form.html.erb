@@ -1,0 +1,61 @@
+<%= form_for(@test) do |f| %>
+  <% if @test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+      <ul>
+      <% @test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label for="Pregunta1:">1.¿Es ésta su primera visita al sitio web del Centro de Atención a clientes?</label><br>
+    <%= f.select(:p1 , [['Si', 'Si'],
+                          ['No', 'No']] )%>
+    <!--%= f.text_field :p1 %-->
+  </div>
+  <div class="field">
+    <label for="Pregunta2:">2.¿Se soluciono su problema o duda sobre nuestros servicios?</label><br>
+    <%= f.select(:p2 , [['Si', 'Si'],
+                          ['No', 'No']])%>
+    <!--%= f.text_field :p2 %-->
+  </div>
+  <div class="field">
+    <label for="Pregunta3:">3.Utilizando una escala del 1 al 10 donde 1 significa totalmente insatisfecho y 10 totalmente satisfecho ¿qué tan satisfecho está en general con el servicio de atención brindado vía Chat?</label><br>
+    <%= f.select(:p3 , [['1', '1'],
+                          ['2', '2'],
+                          ['3', '3'],
+                          ['4', '4'],
+                          ['5', '5'],
+                          ['6', '6'],
+                          ['7', '7'],
+                          ['8', '8'],
+                          ['9', '9'],
+                          ['10', '10']])%>
+    <!--%= f.text_field :p3 %-->
+  </div>
+  <div class="field">
+    <label for="Pregunta4:">4.En una escala de 1 a 10 donde 10 es DEFINITIVAMENTE LO RECOMENDARÍA y 1 es NO LO RECOMENDARÍA, ¿Qué tan dispuesto estaría a recomendar el Centro de Atención vía Chat a un amigo o familiar?</label><br>
+    <!--%= f.text_field :p4 %-->
+    <%= f.select(:p4 , [['1', '1'],
+                          ['2', '2'],
+                          ['3', '3'],
+                          ['4', '4'],
+                          ['5', '5'],
+                          ['6', '6'],
+                          ['7', '7'],
+                          ['8', '8'],
+                          ['9', '9'],
+                          ['10', '10']])%>
+  </div>
+  <div class="field">
+    <label for="Pregunta5:">5.¿Tiene usted algún comentario adicional(Negativo o Positivo) o alguna sugerencia sobre nuestro servicio de Chat?</label><br>
+    <%= f.text_area :p5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Enviar Encuesta"%>
+  </div>
+<% end %>

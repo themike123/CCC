@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_student: MyString
+  horainicial: MyString
+  horafinal: MyString
+  nombre_computer: MyString
+  tiempo: MyString
+  fecha: MyString
+  observaciones: MyString
+
+two:
+  nombre_student: MyString
+  horainicial: MyString
+  horafinal: MyString
+  nombre_computer: MyString
+  tiempo: MyString
+  fecha: MyString
+  observaciones: MyString

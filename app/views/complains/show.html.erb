@@ -1,0 +1,31 @@
+<h2>Su queja y sugerencias se ha enviado con éxito</h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @complain.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @complain.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @complain.email %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @complain.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @complain.content %>
+</p>
+
+<!--%= link_to 'Edit', edit_complain_path(@complain) %-->
+<!--%= link_to 'Back', complains_path %-->
+<a href="/" class="btn-lg btn-default">Atrás</a>

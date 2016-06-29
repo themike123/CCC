@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  equipo: MyString
+  idi: 1
+  numserie: MyString
+  marca: MyString
+  tipo: MyString
+  modelo: MyString
+  observaciones: MyString
+
+two:
+  equipo: MyString
+  idi: 1
+  numserie: MyString
+  marca: MyString
+  tipo: MyString
+  modelo: MyString
+  observaciones: MyString

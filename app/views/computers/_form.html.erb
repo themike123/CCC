@@ -1,0 +1,48 @@
+<%= link_to 'Regresar', computers_path %>
+<% name ||= "Nuevo"%>
+<h1><%= name %> Equipo</h1>
+	<%= form_for(@computer) do |f| %>
+
+		  <div class="form-group">
+		    <label for="text">Equipo:</label>
+		    <%= f.text_field :equipo , placeholder: "Equipo" , class:"form-control" %>
+		  </div>
+
+      <div class="form-group">
+		    <label for="text">ID Interno:</label>
+		    <%= f.text_field :idi , placeholder: "ID Interno" , class:"form-control" %>
+		  </div>
+
+      <div class="form-group">
+		    <label for="text">Numero de Serie:</label>
+		    <%= f.text_field :numserie , placeholder: "Numero de Serie" , class:"form-control" %>
+		  </div>
+
+      <div class="form-group">
+		    <label for="text">Marca:</label>
+		    <%= f.text_field :marca , placeholder: "Marca" , class:"form-control" %>
+		  </div>
+
+      <div class="form-group">
+		    <label for="text">Tipo:</label>
+				<%= f.select(:tipo , [['Computadora de Escritorio', 'Computadora de Escritorio'],
+				 											['Laptop', 'Laptop'] ,
+															['Impresora','Impresora'],
+															['Router','Router'],
+															['Switch','Switch'],
+															['Mouse', 'Mouse'],
+															['Teclado', 'Teclado']] )%>
+		  </div>
+
+      <div class="form-group">
+		    <label for="text">Modelo:</label>
+		    <%= f.text_field :modelo , placeholder: "Modelo" , class:"form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="text">Observaciones:</label>
+		    <%= f.text_area :observaciones , placeholder: "Observaciones"  , class:"form-control"%>
+		  </div>
+
+		  <%= f.submit "Guardar" , class:"btn btn-default" %>
+	<%end%>

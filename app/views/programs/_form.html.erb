@@ -1,0 +1,57 @@
+<%= form_for(@program) do |f| %>
+  <% if @program.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@program.errors.count, "error") %> prohibited this program from being saved:</h2>
+
+      <ul>
+      <% @program.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label for="text">Nombre:</label>
+    <%= f.text_field :nombre , placeholder: "Nombre" , class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Version:</label>
+    <%= f.text_field :version , placeholder: "Version" , class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Plataforma:</label>
+    <%= f.select(:plataforma , [['Windows', 'Windows'],
+                          ['Linux', 'Linux'] ,
+                          ['Mac Os','Mac Os']] )%>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Arquitectura:</label>
+    <%= f.select(:plataforma , [['x32', 'x32'],
+                          ['x64', 'x64']] )%>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Tipo:</label>
+    <%= f.select(:plataforma , [['Software Libre', 'Software Libre'],
+                          ['Software Propietario', 'Software Propietario']] )%>
+  </div>
+
+  <!--Relacion que tiene el programa con computadoras -->
+  <div class="form-group">
+    <label for="text">Computadoras que tienen este Software:</label><br>
+    <% @computers.each do |computer| %>
+          <%= check_box_tag 'computers[]', computer.id -%>
+          <%= computer.equipo -%>
+    <% end %>
+  </div>
+
+  <!-- -->
+
+  <div class="actions">
+    <%= f.submit "Crear Software"%>
+  </div>
+<% end %>

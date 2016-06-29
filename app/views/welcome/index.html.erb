@@ -1,0 +1,68 @@
+<div class="container">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Centro de atención a clientes</h1>
+        <p>Somos un conjunto de recursos tecnológicos y humanos, para prestar servicios con la posibilidad de gestionar y solucionar todas las posibles incidencias de manera integra</p>
+         <a href="/tests/new" class="btn-lg btn-default">Evaluar nuestro desempeño</a>
+         <a href="/complains/new" class="btn-lg btn-default">Quejas o Sugerencias</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Atención telefonica</h2>
+          <p>Nuestra accesoria telefonica lo pondra en contacto con un asesor altamente capacitado para resolver cualquier duda que tenga. </p>
+          <p>Teléfono:9512683331</p>
+          <h2>Contáctenos</h2>
+        </div>
+
+        <div class="col-md-4">
+          <h2>Correo Electronico</h2>
+          <p>Introduzca sus datos que acontinuación se describen y en la brevedad posible uno de nuestros asesores altamente capacitados se pondra en contacto con usted. </p>
+
+          <%= form_for(@message) do |f| %>
+            <% if @message.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+                <ul>
+                <% @message.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :Nombre %><br>
+              <%= f.text_field :name , placeholder: "Nombre" , class:"form-control" %>
+            </div>
+            <div class="field">
+              <%= f.label :Email %><br>
+              <%= f.text_field :email , placeholder: "Email" , class:"form-control" %>
+            </div>
+            <div class="field">
+              <%= f.label :Contenido %><br>
+              <%= f.text_area :content , placeholder: "Contenido" , class:"form-control" %>
+            </div>
+            <div class="actions">
+              <%= f.submit  "Enviar" , class:"btn btn-default"%>
+            </div>
+          <% end %>
+       </div>
+
+       <!--div class="col-md-4">
+         <h2>Chat con nuestro personal</h2>
+         <p>Tenga una conversación en tiempo real con uno de nuestros asesores.</p>
+         <p><a class="btn btn-default" href="/chat/index" role="button">Iniciar Chat</a></p>
+      </div-->
+      </div>
+
+      <hr>
+      <footer>
+        <p>&copy; 2015 Company, Inc.</p>
+      </footer>
+    </div> <!-- /container -->

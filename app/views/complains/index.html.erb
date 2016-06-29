@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<!--h1>Listing Complains</h1-->
+<h1>Qujas y Sugerencias recibidas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre Completo</th>
+      <th>Telefono</th>
+      <th>Email</th>
+      <th>Tema</th>
+      <th>Contenido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @complains.each do |complain| %>
+      <tr>
+        <td><%= complain.name %></td>
+        <td><%= complain.phone %></td>
+        <td><%= complain.email %></td>
+        <td><%= complain.subject %></td>
+        <td><%= complain.content %></td>
+        <td><%= link_to 'Show', complain %></td>
+        <td><%= link_to 'Edit', edit_complain_path(complain) %></td>
+        <td><%= link_to 'Destroy', complain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<!--%= link_to 'Nueva Quejao Sugerencia', new_complain_path %-->

@@ -1,0 +1,18 @@
+<div class="container">
+	<h1>Alumno</h1>
+		<div class="panel-group">
+	    	<div class="panel panel-default">
+	      		<div class="panel-heading">Nombre:<%= @student.nombre %></div>
+            <div class="panel-body">Apellido Paterno:<%= @student.app %></div>
+            <div class="panel-body">Apellido Materno:<%= @student.apm %></div>
+            <div class="panel-body">Estado:<%= @student.estado %></div>
+            <div class="panel-body">Minicipio:<%= @student.municipio %></div>
+            <div class="panel-body">Direccion:<%= @student.direccion %></div>
+            <div class="panel-body">Telefono:<%= @student.telefono %></div>
+            <div class="panel-body">Celular:<%= @student.celular %></div>
+            <div class="panel-body">Correo:<%= @student.correo %></div>
+            <div class="panel-body">Matricula:<%= @student.matricula %></div>
+						<div class="panel-body"><%= link_to "Editar", edit_student_path(@student)%></div>
+	    	</div>
+		</div>
+</div>
