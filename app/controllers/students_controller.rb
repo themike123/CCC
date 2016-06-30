@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
                                estado: params[:student][:estado],
                                municipio: params[:student][:municipio],
                                direccion: params[:student][:direccion],
-                               telefono: params[:student][:telefono],
+                               telefono: "0",
                                celular: params[:student][:celular],
                                correo: params[:student][:correo],
                                matricula: params[:student][:matricula])

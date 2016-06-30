@@ -15,7 +15,7 @@ class ComputersController < ApplicationController
 
 	def create
 		@computer = Computer.new(equipo: params[:computer][:equipo] ,
-							                 idi: params[:computer][:idi],
+							                 idi: "0",
                                numserie: params[:computer][:numserie],
                                marca: params[:computer][:marca],
                                tipo: params[:computer][:tipo],

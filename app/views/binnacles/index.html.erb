@@ -1,15 +1,32 @@
 <h1>Bitácora</h1>
 <% if user_signed_in? %>
-<a href="/binnacles/new" class="btn btn-default" >Nuevo Registro</a>
+<a href="/binnacles/new" class="btn btn-primary" >Nuevo Registro</a>
 <h3>Registros Activos</h3>
-<% @binnacles.each do |binnacle| %>
-	<div class="panel-group">
+<% @activos.each do |binnacle| %>
+	<!--div class="panel-group">
 			<div class="panel panel-default">
 					<div class="panel-heading"><%= binnacle.nombre_computer %></div>
 					<div class="panel-body"><%= binnacle.nombre_student%></div>
 					<div class="panel-body"><%= link_to "Salir", edit_binnacle_path(binnacle)%></div>
 			</div>
-	</div>
+	</div-->
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Maquina</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= binnacle.nombre_computer %></td>
+			<td><%= binnacle.nombre_student%></td>
+			<td><%= link_to "Salir",edit_binnacle_path(binnacle) %><br></td>
+		</tr>
+	</tbody>
+</table>
+<br>
+<br>
 <%end%>
 <h3>Historial de la Bitácora</h3>
 	<table class="table table-hover">
@@ -41,14 +58,20 @@
 		<br>
 		<a href="/binnacles/new" class="btn btn-default" >Nuevo Registro</a>
 	<%end%>
-
+	<br>
+	<br>
 	<% @binnacles.each do |binnacle| %>
-		<div class="panel-group">
+	<h4>Computadora</h4> <%= binnacle.nombre_computer %><br><br>
+	<h4>Alumno</h4> <%= binnacle.nombre_student%>
+	<br><br>
+	<%= link_to "Salir", edit_binnacle_path(binnacle) , :class=> 'btn btn-default'%>
+		<!--div class="panel-group">
 				<div class="panel panel-default">
 						<div class="panel-heading"><%= binnacle.nombre_computer %></div>
 						<div class="panel-body"><%= binnacle.nombre_student%></div>
 						<div class="panel-body"><%= link_to "Salir", edit_binnacle_path(binnacle)%></div>
 				</div>
-		</div>
+		</div-->
+
 	<%end%>
 <% end %>

@@ -18,9 +18,9 @@
         <td><%= message.name %></td>
         <td><%= message.email %></td>
         <td><%= message.content %></td>
-        <td><%= link_to 'Show', message %></td>
+        <td><%= link_to 'Ver', message , :class=> 'btn btn-info' %></td>
         <!--td><%= link_to 'Edit', edit_message_path(message) %></td-->
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', message , :class=> 'btn btn-danger' , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

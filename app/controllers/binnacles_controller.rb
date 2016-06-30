@@ -1,9 +1,10 @@
 class BinnaclesController < ApplicationController
   #before_action :authenticate_user!
   def index
-    @binnacles = Binnacle.where("horafinal = ?", "ocupado")
+    @activos = Binnacle.where("horafinal = ?", "ocupado")
+    @binnacles = Binnacle.where(horafinal: 'ocupado', nombre_student:session[:current_alumno_id])
     @historial = Binnacle.all
-    @longitud = Binnacle.where("horafinal = ?", "ocupado").count
+    @longitud = Binnacle.where(horafinal: 'ocupado', nombre_student:session[:current_alumno_id]).count
   end
   #Get /articles/:id
 
@@ -30,8 +31,18 @@ class BinnaclesController < ApplicationController
                                fecha: fechageneral.strftime("%d/%m/%Y"),
                                observaciones:'Sin observaciones')
 		if @binnacle.save
+      session[:current_alumno_id] = @binnacle.nombre_student
+
+      @computerA = Computer.find_by(equipo: params[:binnacle][:nombre_computer])
+      @computerA.update(idi:'1')
+
+
+      @studentB = Student.find_by(nombre: params[:binnacle][:nombre_student])
+      @studentB.update(telefono:'1')
+
 			redirect_to binnacles_path
 		else
+      session[:current_alumno_id] = @binnacle.nombre_student
 			render :new
 		end
 	end
@@ -49,6 +60,12 @@ class BinnaclesController < ApplicationController
      #( Integer(fechageneral.strftime("%H"))-Integer(fechaanterio[0]) )
     #( Integer(fechageneral.strftime("%M"))-Integer(fechaanterio[1]) )
 
+    @computerA = Computer.find_by(equipo:@binnacle.nombre_computer)
+    @computerA.update(idi:'0')
+
+
+    @studentB = Student.find_by(nombre: @binnacle.nombre_student)
+    @studentB.update(telefono:'0')
 
     @binnacle.update(horafinal:  fechageneral.strftime("%H:%M") ,
     					          tiempo:tiempoH +":"+  tiempoM)
@@ -62,6 +79,7 @@ class BinnaclesController < ApplicationController
     #end
 
 	end
+
 
 	def update
 		#@computer = Computer.find(params[:id])
