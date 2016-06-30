@@ -1,4 +1,4 @@
-<a href="/computers/new" class="btn btn-default	" >Nuevo Equipo</a>
+<a href="/computers/new" class="btn btn-primary	" >Nuevo Equipo</a>
 	<h1>Equipo de Computo</h1>
 	<table class="table table-hover">
 		<thead>
@@ -20,11 +20,12 @@
 					<td><%= computer.tipo%></td>
 					<td><%= computer.modelo%></td>
 					<td><%= computer.observaciones%></td>
-					<td><%= link_to "Ver", computer %>  <%= link_to "Eliminar",computer,method: :delete%></td>
+					<td><%= link_to "Ver", computer , :class=> 'btn btn-info'%> <td>
+					<td><%= link_to "Eliminar",computer, :class=> 'btn btn-danger', method: :delete%></td>
 				</tr>
 			<%end%>
 		</tbody>
 	</table>
 
 
-<%= link_to 'Regresar', computers_path %>
+<%= link_to 'Regresar', computers_path  %>

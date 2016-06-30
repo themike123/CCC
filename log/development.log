@@ -24354,3 +24354,277 @@ Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (174.5ms)
   [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
 Completed 200 OK in 1173ms (Views: 1118.6ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 192.168.0.105 at 2016-06-30 14:55:37 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (58.0ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 895ms (Views: 833.9ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/" for 192.168.0.105 at 2016-06-30 14:55:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (12.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 230ms (Views: 227.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/computers" for 192.168.0.105 at 2016-06-30 14:55:43 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ComputersController#index as HTML
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mComputer Load (5.3ms)[0m  [1mSELECT "computers".* FROM "computers"[0m
+  Rendered computers/index.html.erb within layouts/application (78.4ms)
+Completed 200 OK in 277ms (Views: 217.6ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/computers" for 192.168.0.105 at 2016-06-30 14:56:37 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ComputersController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mComputer Load (0.6ms)[0m  [1mSELECT "computers".* FROM "computers"[0m
+  Rendered computers/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 176ms (Views: 168.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/messages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/chatSocketAchex.self-89682c5cf3ac3c0df3c72e6874e2f539a54e66392fa40cae56e9814682d2ea8e.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/complains.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/prism.self-67dd33bb09f99e95605184f384b13c5e2f8344da2f87f097d11e7190b8fd63f7.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-598365399e6ae8f5a456a189663bac8ef9b8996ace38626328403f280fd63400.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/programs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-374417ae0ad985de8c47b3ad2e149c4ab5f5a825076384bc99dfff3f3d6c88ba.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/tests.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/complains.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.min.self-97d8f5e8a703d3d2aa6f6a2e3b0842d9f32841dabb5706704be961c994a7fe65.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/prism.self-39f46fe06cea92cf2389ea34cc7dd2206422d465fd980c1d53b88643621f93be.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/programs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/tests.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 192.168.0.105 at 2016-06-30 14:56:38 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/computers" for 192.168.0.105 at 2016-06-30 14:57:03 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ComputersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered computers/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.7ms)
+
+SyntaxError (/home/miguel/Ruby/Relpaldo2/CCC/app/views/computers/index.html.erb:31: syntax error, unexpected ','
+... 'Regresar', computers_path , , :class=> 'btn btn-default' )...
+...                               ^):
+  app/views/computers/index.html.erb:31: syntax error, unexpected ','
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.2ms)
+
+
+Started GET "/computers" for 192.168.0.105 at 2016-06-30 14:57:13 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ComputersController#index as HTML
+  [1m[36mUser Load (8.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered computers/index.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 8.4ms)
+
+SyntaxError (/home/miguel/Ruby/Relpaldo2/CCC/app/views/computers/index.html.erb:31: syntax error, unexpected ','
+... 'Regresar', computers_path , , :class=> 'btn btn-primary' )...
+...                               ^):
+  app/views/computers/index.html.erb:31: syntax error, unexpected ','
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.9ms)
+
+
+Started GET "/computers" for 192.168.0.105 at 2016-06-30 14:57:21 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ComputersController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mComputer Load (0.8ms)[0m  [1mSELECT "computers".* FROM "computers"[0m
+  Rendered computers/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 202ms (Views: 183.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/bootstrap.self-598365399e6ae8f5a456a189663bac8ef9b8996ace38626328403f280fd63400.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/chatSocketAchex.self-89682c5cf3ac3c0df3c72e6874e2f539a54e66392fa40cae56e9814682d2ea8e.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/complains.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/messages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-374417ae0ad985de8c47b3ad2e149c4ab5f5a825076384bc99dfff3f3d6c88ba.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/prism.self-67dd33bb09f99e95605184f384b13c5e2f8344da2f87f097d11e7190b8fd63f7.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/programs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/tests.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/complains.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.min.self-97d8f5e8a703d3d2aa6f6a2e3b0842d9f32841dabb5706704be961c994a7fe65.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/prism.self-39f46fe06cea92cf2389ea34cc7dd2206422d465fd980c1d53b88643621f93be.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/programs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/tests.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 192.168.0.105 at 2016-06-30 14:57:22 -0500
+Cannot render console from 192.168.0.105! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
